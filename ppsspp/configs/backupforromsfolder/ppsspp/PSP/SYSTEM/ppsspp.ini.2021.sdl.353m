@@ -1,24 +1,23 @@
 ﻿[General]
 FirstRun = False
-RunCount = 25
+RunCount = 51
 Enable Logging = False
 AutoRun = True
 Browse = False
 IgnoreBadMemAccess = False
-CurrentDirectory = /roms/psp
+CurrentDirectory = /home/ark
 ShowDebuggerOnLoad = False
-CheckForNewVersion = True
+CheckForNewVersion = False
 Language = en_US
 ForceLagSync = False
 DiscordPresence = False
 NumWorkerThreads = 8
 AutoLoadSaveState = 0
 EnableCheats = True
-CwCheatRefreshRate = 77
+CwCheatRefreshRate = 60
 ScreenshotsAsPNG = False
 UseFFV1 = False
 DumpFrames = False
-					   
 DumpAudio = False
 SaveLoadResetsAVdumping = False
 StateSlot = 0
@@ -46,7 +45,6 @@ ForceLagSync2 = False
 UISound = True
 CwCheatScrollPosition = 0.000000
 DumpVideoOutput = False
-						  
 ShowRegionOnGameIcon = False
 ShowIDOnGameIcon = False
 GameGridScale = 1.000000
@@ -59,6 +57,7 @@ RightAnalogCustom = False
 LoadPlugins = False
 GameListScrollPosition = 0.000000
 ShowOnScreenMessage = True
+EnablePlugins = True
 [CPU]
 CPUCore = 1
 SeparateSASThread = True
@@ -71,16 +70,15 @@ HideStateWarnings = False
 PreloadFunctions = False
 CPUSpeed = 333
 JitDisableFlags = 0x00000000
-			  
+FunctionReplacements = True
 [Graphics]
 EnableCardboard = False
 CardboardScreenSize = 50
 CardboardXShift = 0
 CardboardYShift = 0
 ShowFPSCounter = 2
-GraphicsBackend = 0 (OPENGL)
+GraphicsBackend = 3 (VULKAN)
 FailedGraphicsBackends = 
-						   
 VulkanDevice = 
 RenderingMode = 0
 SoftwareRenderer = False
@@ -88,15 +86,16 @@ HardwareTransform = True
 SoftwareSkinning = True
 TextureFiltering = 1
 BufferFiltering = 1
-InternalResolution = 0
+InternalResolution = 1
 AndroidHwScale = 1
 HighQualityDepth = 1
-FrameSkip = 0
-FrameSkipType = 1
-AutoFrameSkip = False
-FrameRate = -1
-FrameRate2 = -1
+FrameSkip = 1
+FrameSkipType = 0
+AutoFrameSkip = True
+FrameRate = 0
+FrameRate2 = 0
 FrameSkipUnthrottle = True
+ForceMaxEmulatedFPS = 30
 AnisotropyLevel = 0
 VertexDecCache = True
 TextureBackoffCache = True
@@ -118,7 +117,7 @@ TexScalingType = 3
 TexDeposterize = False
 VSyncInterval = True
 DisableStencilTest = False
-BloomHack = 2
+BloomHack = 3
 TimerHack = False
 SplineBezierQuality = 0
 HardwareTessellation = False
@@ -129,8 +128,6 @@ FragmentTestCache = True
 LogFrameDrops = False
 EnableCardboardVR = False
 DisabledGraphicsBackends = 
-				   
-				   
 CameraDevice = 
 UnthrottleMode = CONTINUOUS
 IgnoreScreenInsets = True
@@ -139,20 +136,18 @@ TextureShader = Off
 InflightFrames = 2
 RenderDuplicateFrames = True
 ShaderChainRequires60FPS = False
-				  
-							 
 ClearFramebuffersOnFirstUseHack = False
-					   
+UnthrottlingMode = CONTINUOUS
 [Sound]
 Enable = True
-AudioBackend = 0
-AudioLatency = 1
-ExtraAudioBuffering = False
+AudioBackend = 1
+AudioLatency = 0
+ExtraAudioBuffering = True
 SoundSpeedHack = False
 AudioResampler = False
 GlobalVolume = 10
-AltSpeedVolume = -1
-AudioDevice = 
+AltSpeedVolume = 5
+AudioDevice = rockchip,rk817-codec,
 AutoAudioDevice = False
 [Control]
 HapticFeedback = False
@@ -272,7 +267,6 @@ proAdhocServer = myneighborsushicat.com
 PortOffset = 0
 MinTimeout = 1
 TCPNoDelay = False
-						  
 EnableUPnP = False
 UPnPUseOriginalPort = True
 EnableNetworkChat = False
@@ -358,16 +352,6 @@ PopupStyleFg = 0xffffffff
 PopupStyleBg = 0xff303030
 [Recent]
 MaxRecent = 30
-																		   
-													   
-								  
-								  
-																 
-														 
-																
-										  
-										  
-										  
 FileName0 = /roms2/psp/Ultimate Ghosts 'n Goblins (USA) (PSP) (PSN).iso
 [Log]
 SYSTEMEnabled = True
@@ -430,8 +414,6 @@ AUDIOEnabled = True
 AUDIOLevel = 2
 IOEnabled = True
 IOLevel = 2
-				
-				 
 [PostShaderSetting]
 BloomSettingValue1 = 0.600000
 BloomSettingValue2 = 0.500000

@@ -1,6 +1,6 @@
 ﻿[General]
 FirstRun = False
-RunCount = 25
+RunCount = 73
 Enable Logging = False
 AutoRun = True
 Browse = False
@@ -94,9 +94,10 @@ HighQualityDepth = 1
 FrameSkip = 0
 FrameSkipType = 1
 AutoFrameSkip = False
-FrameRate = -1
+FrameRate = 0
 FrameRate2 = -1
 FrameSkipUnthrottle = True
+ForceMaxEmulatedFPS = 60
 AnisotropyLevel = 0
 VertexDecCache = True
 TextureBackoffCache = True
@@ -368,7 +369,7 @@ MaxRecent = 30
 										  
 										  
 										  
-FileName0 = /roms2/psp/Ultimate Ghosts 'n Goblins (USA) (PSP) (PSN).iso
+FileName0 = /roms/psp/P-Tester.PBP
 [Log]
 SYSTEMEnabled = True
 SYSTEMLevel = 4

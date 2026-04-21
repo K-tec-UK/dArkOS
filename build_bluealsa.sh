@@ -28,8 +28,8 @@ sudo cp bluetooth/scripts/Bluetooth.sh Arkbuild/opt/system/
 sudo cp bluetooth/scripts/bt* Arkbuild/usr/local/bin/
 sudo cp bluetooth/scripts/watchforbtaudio.sh Arkbuild/usr/local/bin/
 sudo cp bluetooth/systemd/* Arkbuild/etc/systemd/system/
-sudo mkdir -p Arkbuild/etc/alsa/conf.d/
-sudo cp cp --remove-destination bluetooth/config/20-bluealsa.conf Arkbuild/usr/share/alsa/alsa.conf.d/20-bluealsa.conf
+sudo mkdir -p Arkbuild/usr/share/alsa/alsa.conf.d/
+sudo cp --remove-destination bluetooth/config/20-bluealsa.conf Arkbuild/usr/share/alsa/alsa.conf.d/
 sudo chmod 777 Arkbuild/usr/local/bin/*
 sudo chmod -R 777 Arkbuild/opt/system/
 call_chroot "chown -R ark:ark /opt"

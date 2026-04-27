@@ -1,9 +1,16 @@
 #!/bin/bash
 
 # Build and install Amiberry standalone emulator
-if [ -f "Arkbuild_package_cache/${CHIPSET}/amiberrysa.tar.gz" ] && [ "$(cat Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit)" == "$(curl -s https://raw.githubusercontent.com/christianhaitian/${CHIPSET}_core_builds/refs/heads/master/scripts/amiberry.sh | grep -oP '(?<=TAG=").*?(?=")')" ]; then
+if [ -f "Arkbuild_package_cache/${CHIPSET}/amiberrysa.tar.gz" ] && [ "$(cat Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit)" == "$(curl -s https://raw.githubusercontent.com/K-tec-UK/rk3326_core_builds/refs/heads/amiberry-5.6.8/scripts/amiberry.sh | grep -oP '(?<=TAG=").*?(?=")')" ]; then
     sudo tar -xvzpf Arkbuild_package_cache/${CHIPSET}/amiberrysa.tar.gz
 else
+        # TODO: REMOVE THIS BEFORE COMMITTING!
+	call_chroot "cd /home/ark &&
+	  cd ${CHIPSET}_core_builds &&
+	  git remote set-url origin https://github.com/K-tec-UK/rk3326_core_builds.git &&
+	  git fetch &&
+	  git checkout amiberry-5.6.8"
+
 	call_chroot "cd /home/ark &&
 	  cd ${CHIPSET}_core_builds &&
 	  chmod 777 builds-alt.sh &&
@@ -25,7 +32,7 @@ else
 	  sudo rm -f Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit
 	fi
 	sudo tar -czpf Arkbuild_package_cache/${CHIPSET}/amiberrysa.tar.gz Arkbuild/opt/amiberry/
-	sudo curl -s https://raw.githubusercontent.com/christianhaitian/${CHIPSET}_core_builds/refs/heads/master/scripts/amiberry.sh | grep -oP '(?<=TAG=").*?(?=")' > Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit
+	sudo curl -s https://raw.githubusercontent.com/K-tec-UK/rk3326_core_builds/refs/heads/amiberry-5.6.8/scripts/amiberry.sh | grep -oP '(?<=TAG=").*?(?=")' > Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit
 fi
 
 # Copy the wrapper script to /usr/local/bin

@@ -28,6 +28,10 @@ else
 	sudo curl -s https://raw.githubusercontent.com/christianhaitian/${CHIPSET}_core_builds/refs/heads/master/scripts/amiberry.sh | grep -oP '(?<=TAG=").*?(?=")' > Arkbuild_package_cache/${CHIPSET}/amiberrysa.commit
 fi
 
+# Ensure AmiBerry runtime dependencies are in the image
+# (cache-only builds skip the chroot build step where amiberry.sh would install these)
+call_chroot "apt-get -y install --no-install-recommends libserialport0 libportmidi0"
+
 # Copy the wrapper script to /usr/local/bin
 if [ -d "amiberry" ]; then
   sudo cp -a amiberry/amiberry* Arkbuild/usr/local/bin/
